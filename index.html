@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container text-center">
+    <a href="#" class="navbar-brand mx-auto my-2"><h1>Address Book</h1></a>        
+  </div>    
+</nav>
+
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h1>Your Peeps</h1>
+      <form>
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" class="form-control" id="firstname" placeholder="First Name"> 
+          <!-- <div class="invalid-feedback">
+            Name must be between 2 and 10 characters
+          </div> -->
+        </div>
+        <div class="form-group">
+          <label>Last name</label>
+          <input type="text" class="form-control" id="lastname" placeholder="Last name"> 
+          <!-- <div class="invalid-feedback">
+            Enter a valid zipcode
+          </div> -->
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="text" class="form-control" id="phone" placeholder="Phone Number"> 
+          <!-- <div class="invalid-feedback">
+            Enter a valid phone
+          </div> -->
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="text" class="form-control" id="email" placeholder="Email"> 
+          <!-- <div class="invalid-feedback">
+            Enter a valid email
+          </div> -->
+        </div>
+        <input type="submit" value="Submit" id="contact-submit" class="btn btn-primary btn-block">
+      </form>
+    </div>
+  </div>
+  <br>
+  <!-- Placeholder -->
+  <div id="contacts"></div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr class="table-primary">
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody id="contact-list"></tbody>
+    
+  </table>
+</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
