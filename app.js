@@ -59,11 +59,18 @@ class UI {
 
     return re.test(email);
   
-    // if(!re.test(email.value)){
-    //   email.classList.add('is-invalid');
+    // if(!re.test(email)){
+    //   return 1;
     // } else {
-    //   email.classList.remove('is-invalid');
+    //   this.showAlert('Please enter a valid email format', 'alert alert-danger');
     // }
+  }
+
+  validatePhone(){
+    const phone = document.getElementById('phone').value;
+    const re = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
+
+    return re.test(phone);
   }
 }
 
@@ -136,19 +143,47 @@ document.getElementById('contact-submit').addEventListener('click', function(e) 
   if (firstName === '' && lastName === '' && phone === '' && email === '') {
     ui.showAlert('Please fill in any field', 'alert alert-danger');
   } else {
-    if(ui.validateEmail(email) === true || email === '') {
-      ui.addContactToList(contact);
-      Storage.addContact(contact);
-      ui.showAlert('Contact Added!', 'alert alert-success');
-      ui.clearFields();      
-    } else { 
-      // if(ui.validateEmail(email) === false)      
-      ui.showAlert('Please enter a valid email format', 'alert alert-danger');
+      if ((ui.validateEmail(email) === true || email === '') && (ui.validatePhone(phone) === true || phone === '')) {
+        ui.addContactToList(contact);
+        Storage.addContact(contact);
+        ui.showAlert('Contact Added!', 'alert alert-success');
+        ui.clearFields();  
+      } else {
+        ui.showAlert('Please enter a valid email or phone format', 'alert alert-danger');
+      }      
     }
-  }
 
   e.preventDefault();
 });
+
+
+
+// // Event listener for add contact
+// document.getElementById('contact-submit').addEventListener('click', function(e) {
+//   const firstName = document.getElementById('firstname').value;
+//   const lastName = document.getElementById('lastname').value;
+//   const phone = document.getElementById('phone').value;
+//   const email = document.getElementById('email').value;
+
+//   const contact = new Contact(firstName, lastName, phone, email);
+//   const ui = new UI();
+
+//   if (firstName === '' && lastName === '' && phone === '' && email === '') {
+//     ui.showAlert('Please fill in any field', 'alert alert-danger');
+//   } else {
+//     if(ui.validateEmail(email) === true || email === '') {
+//       ui.addContactToList(contact);
+//       Storage.addContact(contact);
+//       ui.showAlert('Contact Added!', 'alert alert-success');
+//       ui.clearFields();      
+//     } else { 
+//       // if(ui.validateEmail(email) === false)      
+//       ui.showAlert('Please enter a valid email format', 'alert alert-danger');
+//     }
+//   }
+
+//   e.preventDefault();
+// });
 
 
 
