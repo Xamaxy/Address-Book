@@ -202,8 +202,6 @@ function filterContacts(e) {
 
 
 
-
-
 // OVO RADI na firstname zbog [0]
 // function filterContacts(e) {
 //   const text = e.target.value.toLowerCase();
