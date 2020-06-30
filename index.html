@@ -38,7 +38,10 @@
         <div class="form-group">
           <label>Email</label>
           <input type="text" class="form-control" id="email" placeholder="Email"> 
-        </div>        
+        </div> 
+        
+        <input type="hidden" id="id" value="">
+        
         <input type="submit" value="Submit" id="contact-submit" class="btn btn-primary btn-block">
       </form>
       <br>
@@ -73,6 +76,35 @@
     <tbody id="contact-list"></tbody>
     
   </table>
+
+  <div>
+    <ul class="pagination pagination-sm">
+      <li class="page-item disabled">
+        <a class="page-link" href="#">&laquo;</a>
+      </li>
+      <li class="page-item active">
+        <a class="page-link" href="#">1</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">2</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">3</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">4</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">5</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">&raquo;</a>
+      </li>
+    </ul>
+  </div>
+
+
+
 </div>
 
   <script src="app.js"></script>

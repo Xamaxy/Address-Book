@@ -58,12 +58,6 @@ class UI {
     const re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 
     return re.test(email);
-  
-    // if(!re.test(email)){
-    //   return 1;
-    // } else {
-    //   this.showAlert('Please enter a valid email format', 'alert alert-danger');
-    // }
   }
 
   validatePhone(){
@@ -72,6 +66,8 @@ class UI {
 
     return re.test(phone);
   }
+  
+
 }
 
 
@@ -158,34 +154,6 @@ document.getElementById('contact-submit').addEventListener('click', function(e) 
 
 
 
-// // Event listener for add contact
-// document.getElementById('contact-submit').addEventListener('click', function(e) {
-//   const firstName = document.getElementById('firstname').value;
-//   const lastName = document.getElementById('lastname').value;
-//   const phone = document.getElementById('phone').value;
-//   const email = document.getElementById('email').value;
-
-//   const contact = new Contact(firstName, lastName, phone, email);
-//   const ui = new UI();
-
-//   if (firstName === '' && lastName === '' && phone === '' && email === '') {
-//     ui.showAlert('Please fill in any field', 'alert alert-danger');
-//   } else {
-//     if(ui.validateEmail(email) === true || email === '') {
-//       ui.addContactToList(contact);
-//       Storage.addContact(contact);
-//       ui.showAlert('Contact Added!', 'alert alert-success');
-//       ui.clearFields();      
-//     } else { 
-//       // if(ui.validateEmail(email) === false)      
-//       ui.showAlert('Please enter a valid email format', 'alert alert-danger');
-//     }
-//   }
-
-//   e.preventDefault();
-// });
-
-
 
 
 // Event listener for delete
@@ -215,29 +183,25 @@ document.getElementById('filter').addEventListener('keyup', filterContacts);
 
 function filterContacts(e) {
   const text = e.target.value.toLowerCase();
-  const tableList = document.getElementById('contact-list');
-  const tr = tableList.getElementsByTagName('tr');
+  const contactItems = document.querySelectorAll('#contact-list tr');
 
-  for ( i = 0; i < tr.length; i++ ) {
-    // let td, txtValue;
-    td = tr[i].getElementsByTagName('td')[0];
-    txtValue = td.textContent || td.innerText;
-    if (txtValue.toLowerCase().indexOf(text) > -1) {
-      console.log(td);
-      tr[i].style.display = '';
+  // contactItems = Array.from(contactItems);
+
+  contactItems.forEach(function(contact) {
+    const item = contact.textContent;
+    if(item.toLowerCase().indexOf(text) !=-1){
+      contact.style.display = '';
     } else {
-      tr[i].style.display = 'none';
+      contact.style.display = 'none';
     }
-  }
+  });
 }
 
 
 
+//  PROBATI PREPRAVITI FOR FUN DA PREPOZNAJE CIJELI KONAKT
+// document.getElementById('filter').addEventListener('keyup', filterContacts);
 
-
-
-
-// OVO RADI na firstname zbog [0]
 // function filterContacts(e) {
 //   const text = e.target.value.toLowerCase();
 //   const tableList = document.getElementById('contact-list');
