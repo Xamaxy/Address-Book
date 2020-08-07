@@ -21,8 +21,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 mx-auto contactContainer">
-      <h1>Your Peeps</h1>
-      <form id="contact-form">
+      <h1 class="mb-3">Your Peeps</h1>
+      <form id="contact-form" class="contact-form">
         <div class="form-group">
           <label>First Name</label>
           <input type="text" class="form-control" id="firstname" placeholder="First Name">
@@ -43,6 +43,9 @@
         <input type="hidden" id="id" value="">
         
         <input type="submit" value="Submit" id="contact-submit" class="btn btn-primary btn-block">
+        <input type="submit" value="Cancel" id="cancel" class="btn btn-light btn-block" style="display: none;">
+        <input type="submit" value="Update" id="contact-update" class="btn btn-warning btn-block" style="display: none;">
+        <span class="form-end"></span>
       </form>
       <br>
     </div>
@@ -51,7 +54,7 @@
   <br>
 
   
-  <input class="form-control mr-sm-2" type="text" id="filter" placeholder="Search for name">
+  <input class="form-control mr-2" type="text" id="filter" placeholder="Search for name">
   
 
 
@@ -63,21 +66,27 @@
 
   <br>
 
-  <table class="table table-hover">
+  <button id="sort" class="btn btn-outline-primary mb-3 mr-2">Sort by first name ↓</button>
+  <button id="sort2" class="btn btn-outline-primary mb-3">Sort by last name ↓</button>
+
+  <br>
+
+  <table class="table table-hover table-sm">
     <thead>
       <tr class="table-primary">
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Phone</th>
-        <th scope="col">Email</th>
-        <th scope="col"></th>
+        <th class="th-sm">First Name 
+          <a href="#"><i class="fa fa-arrow-up"></i></a>          
+          <a href="#"><i class="fa fa-arrow-down"></i></a></th>
+        <th class="th-sm">Last Name</th>
+        <th class="th-sm">Phone</th>
+        <th class="th-sm">Email</th>
+        <th class="th-sm"></th>
       </tr>
     </thead>
-    <tbody id="contact-list"></tbody>
-    
+    <tbody id="contact-list"></tbody>    
   </table>
 
-  <div>
+  <!-- <div>
     <ul class="pagination pagination-sm">
       <li class="page-item disabled">
         <a class="page-link" href="#">&laquo;</a>
@@ -101,12 +110,14 @@
         <a class="page-link" href="#">&raquo;</a>
       </li>
     </ul>
-  </div>
+  </div> -->
 
 
 
 </div>
 
-  <script src="app.js"></script>
+  
+    <script src="app.js"></script>
+
 </body>
 </html>
